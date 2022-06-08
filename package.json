@@ -1,0 +1,14 @@
+{
+  "name": "silly-calc",
+  "version": "1.0.0",
+  "description": "Silly calculator for testing pratice",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Patrick Kelly",
+  "license": "MIT",
+  "devDependencies": {
+    "tsc": "^2.0.4"
+  }
+}
