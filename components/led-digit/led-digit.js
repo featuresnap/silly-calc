@@ -1,6 +1,6 @@
 import Template from "./template.js";
 
-class LedDigit extends HTMLElement {
+export default class LedDigit extends HTMLElement {
 
     constructor() {
         super();
@@ -12,14 +12,26 @@ class LedDigit extends HTMLElement {
     }
 
     connectedCallback() {
-        this.innerHTML = Template.render({});
-        this.topSegment = this.querySelector(".top.segment");
-        this.topLeftSegment = this.querySelector(".top-left.segment");
-        this.topRightSegment = this.querySelector(".top-right.segment");
-        this.middleSegment = this.querySelector(".middle.segment");
-        this.bottomLeftSegment = this.querySelector(".bottom-left.segment");
-        this.bottomRightSegment = this.querySelector(".bottom-right.segment");
-        this.bottomSegment = this.querySelector(".bottom.segment");      
+        this.root = this.attachShadow({mode: 'open'});
+        this.root.innerHTML = Template.render({});
+        
+        this.topSegment = this.root.querySelector(".top.segment");
+        this.topLeftSegment = this.root.querySelector(".top-left.segment");
+        this.topRightSegment = this.root.querySelector(".top-right.segment");
+        this.centerSegment = this.root.querySelector(".center.segment");
+        this.bottomLeftSegment = this.root.querySelector(".bottom-left.segment");
+        this.bottomRightSegment = this.root.querySelector(".bottom-right.segment");
+        this.bottomSegment = this.root.querySelector(".bottom.segment");  
+        
+        this.segments = [
+            this.topSegment, 
+            this.topLeftSegment, 
+            this.topRightSegment, 
+            this.centerSegment, 
+            this.bottomLeftSegment, 
+            this.bottomRightSegment, 
+            this.bottomSegment
+        ]
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -27,7 +39,14 @@ class LedDigit extends HTMLElement {
     }
 
     set value(newValue) {
-        
+        console.log(`value changed from ${this.value} to ${newValue}`);
+        this.value = newValue;
+    }
+
+    clear() {
+        for (const segment of this.segments) {
+            segment.classList.remove('on');
+        }
     }
     
 }

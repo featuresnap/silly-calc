@@ -1,4 +1,4 @@
-import * as _ from './components/led-digit/led-digit.js'
+import LedDisplay from './components/led-display/led-display.js'
 
 console.log('hello')
 

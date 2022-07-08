@@ -13,23 +13,28 @@ export default {
         <div class="bottom-left segment"></div>
         <div class="bottom-right segment"></div>
         <div class="bottom segment"></div>
+        <div class="decimal segment"></div>
     </div>`; },
 
     css(p) { return `
         <style>
             .digit-container {
                 display: grid;
-                width: 5em;
+                width: 6em;
                 height: 9em;
                 background-color: black;
-                grid-template-rows: 12% 32% 12% 32% 12%;
-                grid-template-columns: 5% 15% 60% 15% 5%
+                grid-template-rows: 10% 35% 10% 35% 10%;
+                grid-template-columns: 5% 10% 45% 10% 5% 20%;
             }
 
             .segment {
-                background-color: red;
+                background-color: #440000;
                 border-radius: .5em;
                 --interior-radius: 1em;
+            }
+
+            .segment.on {
+                background-color: red;
             }
 
             .segment.top {
@@ -85,6 +90,13 @@ export default {
                 grid-column-end: span 3;
                 border-top-left-radius: var(--interior-radius);
                 border-top-right-radius: var(--interior-radius);
+            }
+
+            .segment.decimal {
+                grid-row: 5;
+                grid-column: 6;
+                border-radius: 50%;
+                margin-left: 15%;
             }
         </style>`; 
     }
