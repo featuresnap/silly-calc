@@ -12,7 +12,7 @@ export default class LedDigit extends HTMLElement {
     }
 
     connectedCallback() {
-        this.root = this.attachShadow({mode: 'open'});
+        this.root = this;// this.attachShadow({mode: 'open'});
         this.root.innerHTML = Template.render({});
         
         this.topSegment = this.root.querySelector(".top.segment");

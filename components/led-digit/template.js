@@ -5,7 +5,6 @@ export default {
     },
 
     html(p) { return `
-    <div class="digit-container">
         <div class="top segment"></div>
         <div class="top-left segment"></div>
         <div class="top-right segment"></div>
@@ -14,14 +13,14 @@ export default {
         <div class="bottom-right segment"></div>
         <div class="bottom segment"></div>
         <div class="decimal segment"></div>
-    </div>`; },
+    `; },
 
     css(p) { return `
         <style>
-            .digit-container {
+            led-digit {
+                width: 100%;
+                height: 100%;
                 display: grid;
-                width: 6em;
-                height: 9em;
                 background-color: black;
                 grid-template-rows: 10% 35% 10% 35% 10%;
                 grid-template-columns: 5% 10% 45% 10% 5% 20%;

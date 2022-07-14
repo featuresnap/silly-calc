@@ -25,11 +25,16 @@ export default {
         <style>
             .display {
                 background-color: black;
-                display: inline-block;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                min-height: 4em;
+                height: 5em;
             }
             
             led-digit {
-                display: inline-block;
+                width: 8.33%;
+                height: 100%;
             }
         </style>`; 
     }
