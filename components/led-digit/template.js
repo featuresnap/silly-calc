@@ -18,8 +18,7 @@ export default {
     css(p) { return `
         <style>
             led-digit {
-                width: 100%;
-                height: 100%;
+ 
                 display: grid;
                 background-color: black;
                 grid-template-rows: 10% 35% 10% 35% 10%;

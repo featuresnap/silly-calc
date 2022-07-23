@@ -29,7 +29,8 @@ export default {
                 flex-direction: row;
                 justify-content: flex-end;
                 min-height: 4em;
-                height: 5em;
+                height: inherit;
+                width: inherit;
             }
             
             led-digit {
