@@ -1,4 +1,4 @@
- class LedDisplayPage {
+ class LedDisplayFixture {
 
 
     /**
@@ -15,4 +15,4 @@
 
 }
 
-module.exports = {LedDisplayPage};
+module.exports = {LedDisplayFixture};
