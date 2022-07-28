@@ -19,3 +19,14 @@ test('homepage has Playwright in title and get started link linking to the intro
   // Expects the URL to contain intro.
   await expect(page).toHaveURL(/.*intro/);
 });
+
+test('display is displayed', async ({page}) => {
+    await page.goto('/');
+
+    const display = page.locator('led-display');
+
+    await expect(display).toBeVisible();
+
+    await page.screenshot({path: 'screenshot.png'});
+
+});
