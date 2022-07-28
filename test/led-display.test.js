@@ -1,5 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const {LedDisplayPage} = require('./page-helpers/led-display-page');
 
 test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }) => {
   await page.goto('https://playwright.dev/');
@@ -22,10 +23,9 @@ test('homepage has Playwright in title and get started link linking to the intro
 
 test('display is displayed', async ({page}) => {
     await page.goto('/');
+    const display = new LedDisplayPage(page);
 
-    const display = page.locator('led-display');
-
-    await expect(display).toBeVisible();
+    await expect(display.value).toBe("");
 
     await page.screenshot({path: 'screenshot.png'});
 
