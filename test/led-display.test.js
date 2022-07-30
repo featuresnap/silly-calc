@@ -3,30 +3,11 @@ const { test, expect } = require('@playwright/test');
 const {LedDisplayFixture} = require('./page-helpers/led-display-fixture');
 const {KeypadFixture} = require('./page-helpers/keypad-fixture');
 
-test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-
-  // create a locator
-  const getStarted = page.locator('text=Get Started');
-
-  // Expect an attribute "to be strictly equal" to the value.
-  await expect(getStarted).toHaveAttribute('href', '/docs/intro');
-
-  // Click the get started link.
-  await getStarted.click();
- 
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
-});
-
 test('display is displayed', async ({page}) => {
     await page.goto('/');
     const display = new LedDisplayFixture(page);
 
-    await expect(display.value).toBe("");
+    await expect(display.displayContents).toBe("");
 
 });
 
@@ -36,5 +17,5 @@ test('all clear displays "0."', async ({page}) => {
     const keypad = new KeypadFixture(page);
     await keypad.allClear(); 
 
-    await expect(display.value).toBe("0.");
+    await expect(display.displayContents).toBe("0.");
 });

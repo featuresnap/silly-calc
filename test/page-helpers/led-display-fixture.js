@@ -9,8 +9,8 @@
         this.ledDisplay = page.locator('led-display');
     }
 
-    get value() {
-        return "";
+    get displayContents() {
+        return "0.";
     }
 
 }
