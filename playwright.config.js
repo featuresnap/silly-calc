@@ -6,6 +6,7 @@ const config = {
       baseURL: 'http://localhost:8080',
       headless: true,
       viewport: { width: 1280, height: 720 },
+      actionTimeout: 3000,
       ignoreHTTPSErrors: true,
       video: 'on-first-retry',
     },
