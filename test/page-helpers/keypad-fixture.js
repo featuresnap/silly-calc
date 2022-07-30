@@ -4,7 +4,7 @@ class KeypadFixture {
      * @param {import('@playwright/test').Page} page 
      */
     constructor(page) {
-        this.allClearButton = page.locator('#AC');
+        this.allClearButton = page.locator('text=AC');
     }
 
     async allClear() {
