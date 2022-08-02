@@ -9,7 +9,10 @@ const config = {
       actionTimeout: 3000,
       ignoreHTTPSErrors: true,
       video: 'on-first-retry',
+ 
     },
+
+    testMatch: 'test/e2e/*test.js'
   };
   
   module.exports = config;
