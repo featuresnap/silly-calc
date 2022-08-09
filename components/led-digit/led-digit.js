@@ -12,26 +12,27 @@ export default class LedDigit extends HTMLElement {
     }
 
     connectedCallback() {
-        this.root = this;// this.attachShadow({mode: 'open'});
-        this.root.innerHTML = Template.render({});
+        this.innerHTML = Template.render({});
         
-        this.topSegment = this.root.querySelector(".top.segment");
-        this.topLeftSegment = this.root.querySelector(".top-left.segment");
-        this.topRightSegment = this.root.querySelector(".top-right.segment");
-        this.centerSegment = this.root.querySelector(".center.segment");
-        this.bottomLeftSegment = this.root.querySelector(".bottom-left.segment");
-        this.bottomRightSegment = this.root.querySelector(".bottom-right.segment");
-        this.bottomSegment = this.root.querySelector(".bottom.segment");  
+        this.topSegment = this.querySelector(".top.segment");
+        this.topLeftSegment = this.querySelector(".top-left.segment");
+        this.topRightSegment = this.querySelector(".top-right.segment");
+        this.centerSegment = this.querySelector(".center.segment");
+        this.bottomLeftSegment = this.querySelector(".bottom-left.segment");
+        this.bottomRightSegment = this.querySelector(".bottom-right.segment");
+        this.bottomSegment = this.querySelector(".bottom.segment");
+        this.decimalPointSegment = this.querySelector('.decimal.segment');
         
-        this.segments = [
+        this.allSegments = [
             this.topSegment, 
             this.topLeftSegment, 
             this.topRightSegment, 
             this.centerSegment, 
             this.bottomLeftSegment, 
             this.bottomRightSegment, 
-            this.bottomSegment
-        ]
+            this.bottomSegment, 
+            this.decimalPointSegment
+        ];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -44,9 +45,22 @@ export default class LedDigit extends HTMLElement {
     }
 
     clear() {
-        for (const segment of this.segments) {
+        for (const segment of this.allSegments) {
             segment.classList.remove('on');
         }
+    }
+
+    set theSegments(segmentsTurnedOn) {
+        this.clear();
+        // for(const segment of segmentsTurnedOn) {
+        //     switch(segment) {
+        //         case 'a': {
+                    this.topSegment.classList.add('on');
+        //             break;
+        //         };
+        //         default: break;
+        //     }
+        // }
     }
     
 }
