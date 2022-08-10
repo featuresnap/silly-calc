@@ -13,7 +13,7 @@ export default class LedDigit extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = Template.render({});
-        
+
         this.topSegment = this.querySelector(".top.segment");
         this.topLeftSegment = this.querySelector(".top-left.segment");
         this.topRightSegment = this.querySelector(".top-right.segment");
@@ -22,15 +22,15 @@ export default class LedDigit extends HTMLElement {
         this.bottomRightSegment = this.querySelector(".bottom-right.segment");
         this.bottomSegment = this.querySelector(".bottom.segment");
         this.decimalPointSegment = this.querySelector('.decimal.segment');
-        
+
         this.allSegments = [
-            this.topSegment, 
-            this.topLeftSegment, 
-            this.topRightSegment, 
-            this.centerSegment, 
-            this.bottomLeftSegment, 
-            this.bottomRightSegment, 
-            this.bottomSegment, 
+            this.topSegment,
+            this.topLeftSegment,
+            this.topRightSegment,
+            this.centerSegment,
+            this.bottomLeftSegment,
+            this.bottomRightSegment,
+            this.bottomSegment,
             this.decimalPointSegment
         ];
     }
@@ -50,19 +50,19 @@ export default class LedDigit extends HTMLElement {
         }
     }
 
-    set theSegments(segmentsTurnedOn) {
+    set segments(segmentsTurnedOn) {
         this.clear();
-        // for(const segment of segmentsTurnedOn) {
-        //     switch(segment) {
-        //         case 'a': {
-                    this.topSegment.classList.add('on');
-        //             break;
-        //         };
-        //         default: break;
-        //     }
-        // }
+        for (const segment of segmentsTurnedOn) {
+            switch (segment) {
+                case 'a': { this.topSegment.classList.add('on'); break; };
+                case 'b': { this.topRightSegment.classList.add('on'); break; }
+
+
+                default: break;
+            }
+        }
     }
-    
+
 }
 
 if (!customElements.get('led-digit')) {
