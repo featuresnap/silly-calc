@@ -56,7 +56,12 @@ export default class LedDigit extends HTMLElement {
             switch (segment) {
                 case 'a': { this.topSegment.classList.add('on'); break; };
                 case 'b': { this.topRightSegment.classList.add('on'); break; }
-
+                case 'c': { this.bottomRightSegment.classList.add('on'); break; }
+                case 'd': { this.bottomSegment.classList.add('on'); break; }
+                case 'e': { this.bottomLeftSegment.classList.add('on'); break; }
+                case 'f': { this.topLeftSegment.classList.add('on'); break; }
+                case 'g': { this.centerSegment.classList.add('on'); break; }
+                case 'h': { this.decimalPointSegment.classList.add('on'); break; }
 
                 default: break;
             }
