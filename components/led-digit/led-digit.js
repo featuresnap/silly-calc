@@ -68,6 +68,10 @@ export default class LedDigit extends HTMLElement {
         }
     }
 
+    get segments() {
+        return '';
+    }
+
 }
 
 if (!customElements.get('led-digit')) {

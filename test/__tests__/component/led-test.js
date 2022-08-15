@@ -5,37 +5,47 @@ import {LedDigit} from '../../../components/led-digit/led-digit';
 import {screen} from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';
 
+const digit = document.body.appendChild(document.createElement('led-digit'));
+
+beforeEach(() => digit.clear());
+
 test('contains 8 segments', () => {
-    const digit = document.body.appendChild(document.createElement('led-digit'));
     expect(digit.allSegments).toHaveLength(8);
 });
 
-test('illuminate "a" segment', () => {
-    const digit = document.body.appendChild(document.createElement('led-digit'));
-    digit.segments = 'a';
+test('illuminate no segments', () => {
+    digit.segments = '';
     const onSegments = digit.querySelectorAll('.segment.on');
-    expect(onSegments[0]).toHaveClass('top');
+    expect(Array.from(onSegments)).toEqual([]);
 });
 
-test('illuminate "b" segment', () => {
-    const digit = document.body.appendChild(document.createElement('led-digit'));
-    digit.segments = 'b';
+test('illuminate "a" segment', () => {
+    digit.segments = 'a';
+    const onSegment = digit.querySelector('.segment.on');
+    expect(onSegment).toBe(digit.topSegment);
+});
+
+test('illuminate "b" and "c" segments', () => {
+    digit.segments = 'bc';
     const onSegments = digit.querySelectorAll('.segment.on');
-    expect(onSegments[0]).toHaveClass('top-right');
+    expect(onSegments).toContainAllValues([digit.topRightSegment, digit.bottomRightSegment]);
 });
 
 test('illuminate "c" and "d" segments', () => {
-    const digit = document.body.appendChild(document.createElement('led-digit'));
     digit.segments = "cd";
     const onSegments = digit.querySelectorAll('.segment.on');
     expect(onSegments).toContainAllValues([digit.bottomRightSegment, digit.bottomSegment]);
 });
 
 test('illuminate "e", "f" and "g" segments', () => {
-    const digit = document.body.appendChild(document.createElement('led-digit'));
     digit.segments = "efg";
     const onSegments = digit.querySelectorAll('.segment.on');
     expect(onSegments).toContainAllValues([digit.bottomLeftSegment, digit.topLeftSegment, digit.centerSegment]);
+});
+
+test('segments is empty if no segments turned on', () => {
+    digit.clear();
+    expect(digit.segments).toEqual('');
 });
 
 
