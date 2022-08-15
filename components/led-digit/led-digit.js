@@ -69,7 +69,16 @@ export default class LedDigit extends HTMLElement {
     }
 
     get segments() {
-        return '';
+        let onSegments = '';
+        if (this.topSegment.classList.contains('on')) { onSegments = 'a';}
+        if (this.topRightSegment.classList.contains('on')) { onSegments += 'b'; }
+        if (this.bottomRightSegment.classList.contains('on')) { onSegments += 'c'; }
+        if (this.bottomSegment.classList.contains('on')) { onSegments += 'd'; }
+        if (this.bottomLeftSegment.classList.contains('on')) { onSegments += 'e'; }
+        if (this.topLeftSegment.classList.contains('on')) { onSegments += 'f'; }
+        if (this.centerSegment.classList.contains('on')) { onSegments += 'g'; }
+        if (this.decimalPointSegment.classList.contains('on')) { onSegments += 'h'; }        
+        return onSegments;
     }
 
 }

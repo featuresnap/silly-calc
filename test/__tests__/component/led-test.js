@@ -48,4 +48,14 @@ test('segments is empty if no segments turned on', () => {
     expect(digit.segments).toEqual('');
 });
 
+test('segments reflects turned on segments', () => {
+    digit.segments = 'efgh';
+    expect(digit.segments).toEqual('efgh');
+});
+
+test('segments reflects turned on segments - more segments', () => {
+    digit.segments = 'abcd';
+    expect(digit.segments).toEqual('abcd');
+});
+
 
