@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 import {LedDigit} from '../../../components/led-digit/led-digit';
-import {screen} from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';
 
 const digit = document.body.appendChild(document.createElement('led-digit'));
