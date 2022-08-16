@@ -12,5 +12,5 @@ test('render decimal point', () => {
 
 test('render 1.', () => {
     const value = toSegments('1.');
-    expect(value[0]).toContainAllEntries('bch');
+    expect(value[0]).toContainAllValues(['b', 'c', 'h']);
 });
