@@ -1,8 +1,13 @@
-function toSegments(expr) {
+function toSegmentsRaw(expr) {
 
-    if (expr === '.') {return ['h'];}
-    if (expr === '1.') {return ['bch'];}
-    return [];
+    if (expr === '.') { return 'h'; }
+    if (expr === '1') { return 'bc'; }
+    if (expr === '1.') { return 'bch'; }
+    return '';
 }
 
-export {toSegments};
+function toSegments(expr) {
+    return [toSegmentsRaw(expr)];
+}
+
+export { toSegments };
