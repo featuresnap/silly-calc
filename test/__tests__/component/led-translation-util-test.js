@@ -5,7 +5,12 @@ test('get segments for empty digits', () => {
     expect(value).toBeEmpty();
 });
 
-test('decimal point', () => {
+test('render decimal point', () => {
     const value = toSegments('.');
     expect(value).toEqual(['h']);
+});
+
+test('render 1.', () => {
+    const value = toSegments('1.');
+    expect(value[0]).toContainAllEntries('bch');
 });
