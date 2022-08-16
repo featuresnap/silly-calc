@@ -1,4 +1,4 @@
-function toSegmentsRaw(expr) {
+function toSegments(expr) {
 
     if (expr === '.') { return 'h'; }
     if (expr === '1') { return 'bc'; }
@@ -6,8 +6,4 @@ function toSegmentsRaw(expr) {
     return '';
 }
 
-function toSegments(expr) {
-    return [toSegmentsRaw(expr)];
-}
-
-export { toSegments, toSegmentsRaw };
+export { toSegments};
