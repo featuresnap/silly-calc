@@ -10,4 +10,4 @@ function toSegments(expr) {
     return [toSegmentsRaw(expr)];
 }
 
-export { toSegments };
+export { toSegments, toSegmentsRaw };

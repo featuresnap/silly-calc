@@ -1,23 +1,23 @@
-import { toSegments } from '../../../components/led-display/led-translation-util';
+import { toSegments , toSegmentsRaw} from '../../../components/led-display/led-translation-util';
 
 test('get segments for empty digits', () => {
-    const value = toSegments('');
-    expect(value[0]).toBeEmpty();
+    const value = toSegmentsRaw('');
+    expect(value).toBeEmpty();
 });
 
 test('render decimal point', () => {
-    const value = toSegments('.');
-    expect(value).toEqual(['h']);
+    const value = toSegmentsRaw('.');
+    expect(value).toEqual('h');
 });
 
 test('render 1', () => {
-    const value = toSegments('1');
-    expect(value[0]).toContainAllValues(['b', 'c']);
+    const value = toSegmentsRaw('1');
+    expect(value).toContainAllValues(['b', 'c']);
 });
 
 test('render 1.', () => {
-    const value = toSegments('1.');
-    expect(value[0]).toContainAllValues(['b', 'c', 'h']);
+    const value = toSegmentsRaw('1.');
+    expect(value).toContainAllValues(['b', 'c', 'h']);
 });
 
 // test('render 4', () => {
