@@ -1,5 +1,7 @@
 const digitLookup = new Map([
     ['1', 'bc'],
+    ['2', 'abdeg'],
+    ['3', 'abcdg'],
     ['.', 'h']
 ]);
 

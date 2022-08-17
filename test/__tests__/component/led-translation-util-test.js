@@ -24,3 +24,8 @@ test('unrecognized value translates to empty string', () => {
     const value = toSegments('X');
     expect(value).toBeEmpty();
 });
+
+test('translate rest of digits', () => {
+    expect(toSegments('2')).toContainAllValues(['a', 'b', 'd', 'e', 'g']);
+    expect(toSegments('3')).toContainAllValues(['a', 'b', 'c', 'd', 'g']);
+});
