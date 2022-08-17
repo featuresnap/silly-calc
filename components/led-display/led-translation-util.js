@@ -1,9 +1,23 @@
+const digitLookup = new Map([
+    ['1', 'bc'],
+    ['.', 'h']
+]);
+
+/**
+ * 
+ * @param {string} expr 
+ * @returns string 
+ */
 function toSegments(expr) {
 
-    if (expr === '.') { return 'h'; }
-    if (expr === '1') { return 'bc'; }
-    if (expr === '1.') { return 'bch'; }
-    return '';
+    const subDigits = expr.split('');
+    let segments = '';
+ 
+    for(const subDigit of subDigits) {
+        segments += digitLookup.get(subDigit) || '';
+    }
+
+    return segments;
 }
 
-export { toSegments};
+export { toSegments };

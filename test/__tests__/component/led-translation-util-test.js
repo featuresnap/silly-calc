@@ -1,26 +1,26 @@
 import { toSegments} from '../../../components/led-display/led-translation-util';
 
-test('get segments for empty digits', () => {
+test('empty expression translates to empty string', () => {
     const value = toSegments('');
     expect(value).toBeEmpty();
 });
 
-test('render decimal point', () => {
+test('decimal point translates to decimal segment', () => {
     const value = toSegments('.');
     expect(value).toEqual('h');
 });
 
-test('render 1', () => {
+test('translate 1 - digit only', () => {
     const value = toSegments('1');
     expect(value).toContainAllValues(['b', 'c']);
 });
 
-test('render 1.', () => {
+test('translate digit 1. - with decimal point', () => {
     const value = toSegments('1.');
     expect(value).toContainAllValues(['b', 'c', 'h']);
 });
 
-// test('render 4', () => {
-//     const value = toSegments('4.');
-//     expect(value[0]).toContainAllValues('bcfg')
-// });
+test('unrecognized value translates to empty string', () => {
+    const value = toSegments('X');
+    expect(value).toBeEmpty();
+});
