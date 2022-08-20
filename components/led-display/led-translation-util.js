@@ -21,11 +21,23 @@ const digitLookup = new Map([
 ]);
 
 /**
+ * @param {string} expr 
+ * @param {{digits: number}} [options] 
+ * @return {Array<string>}
+ */
+function toDisplayChunks(expr, options) {
+    const defaults = {digits: 12};
+    const opts = {...defaults, ...options};
+    return [];
+}
+
+/**
  * 
  * @param {string} expr 
- * @returns string 
+ * @return {string} 
  */
 function toSegments(expr) {
+
 
     const subDigits = expr.split('');
     let segments = '';
@@ -37,4 +49,4 @@ function toSegments(expr) {
     return segments;
 }
 
-export { toSegments };
+export { toDisplayChunks, toSegments };
