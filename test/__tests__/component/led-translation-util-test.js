@@ -2,16 +2,14 @@ import { toDisplayChunks, toSegments } from '../../../components/led-display/led
 
 describe('toDisplayChunks', () => {
 
-    const callWithDefaults = rawExpr => {
-        return toDisplayChunks(rawExpr /*, {digits: 12}*/);
-    }
+    test('empty expression produces empty list', () => {
+        expect(toDisplayChunks('')).toBeEmpty();
+    });
 
-    test('empty case', () => {
-        expect(callWithDefaults('')).toBeEmpty();
-    });
     test('single digit represents its own chunk', () => {
-        expect(callWithDefaults('1')).toEqual(['1']);
+        expect(toDisplayChunks('1')).toEqual(['1']);
     });
+
     // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});
