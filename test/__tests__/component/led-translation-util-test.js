@@ -9,7 +9,9 @@ describe('toDisplayChunks', () => {
     test('empty case', () => {
         expect(callWithDefaults('')).toBeEmpty();
     });
-    // test('empty case', () => {});
+    test('single digit represents its own chunk', () => {
+        expect(callWithDefaults('1')).toEqual(['1']);
+    });
     // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});

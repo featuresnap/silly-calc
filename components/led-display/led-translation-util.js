@@ -28,7 +28,8 @@ const digitLookup = new Map([
 function toDisplayChunks(expr, options) {
     const defaults = {digits: 12};
     const opts = {...defaults, ...options};
-    return [];
+    if (expr === '') {return [];}
+    return [expr];
 }
 
 /**
