@@ -1,6 +1,5 @@
 export default {
     render(props) {
-        console.log('led-display::render() called');
         return `${this.html(props)}
                 ${this.css(props)}`;
     },
