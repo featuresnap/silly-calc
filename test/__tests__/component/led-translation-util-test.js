@@ -20,9 +20,12 @@ describe('toDisplayChunks', () => {
         expect(toDisplayChunks('.c')).toEqual(['.', 'c']);
     });
 
-    test('minus sign', () => {
+    test('minus sign preceding or following a single digit is a separate chunk', () => {
         expect(toDisplayChunks('-5')).toEqual(['-', '5']);
+        expect(toDisplayChunks('a-')).toEqual(['a', '-']);
     });
+
+    
     // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});
