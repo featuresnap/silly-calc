@@ -12,11 +12,11 @@ const digitLookup = new Map([
     ['a', 'abcefg'],
     ['b', 'cdefg'],
     ['c', 'adef'],
-    ['d', 'bcdeg'], 
+    ['d', 'bcdeg'],
     ['e', 'abdefg'],
     ['f', 'aefg'],
     ['-', 'g'],
-    ['.', 'h'], 
+    ['.', 'h'],
     ['E', 'adefg']
 ]);
 
@@ -26,10 +26,12 @@ const digitLookup = new Map([
  * @return {Array<string>}
  */
 function toDisplayChunks(expr, options) {
-    const defaults = {digits: 12};
-    const opts = {...defaults, ...options};
-    if (expr === '') {return [];}
-    return [expr];
+    const defaults = { digits: 12 };
+    const opts = { ...defaults, ...options };
+    if (expr === '') { return []; }
+
+    const pattern = /(\d\.|\d|\.)/g;
+    return Array.from(expr.matchAll(pattern)).map(x => x[0]);
 }
 
 /**
@@ -42,8 +44,8 @@ function toSegments(expr) {
 
     const subDigits = expr.split('');
     let segments = '';
- 
-    for(const subDigit of subDigits) {
+
+    for (const subDigit of subDigits) {
         segments += digitLookup.get(subDigit) || '';
     }
 

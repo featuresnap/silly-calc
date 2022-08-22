@@ -6,12 +6,17 @@ describe('toDisplayChunks', () => {
         expect(toDisplayChunks('')).toBeEmpty();
     });
 
-    test('single digit represents its own chunk', () => {
+    test('single digit is a single chunk', () => {
         expect(toDisplayChunks('1')).toEqual(['1']);
     });
 
-    // test('empty case', () => {});
-    // test('empty case', () => {});
+    test('single digit preceding a decimal point is a single chunk', () => {
+        expect(toDisplayChunks('2.')).toEqual(['2.']);
+    });
+
+    test('decimal point preceding a single digit is 2 chunks', () => {
+        expect(toDisplayChunks('.3')).toEqual(['.', '3']);
+    });
     // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});
