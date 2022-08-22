@@ -25,8 +25,12 @@ describe('toDisplayChunks', () => {
         expect(toDisplayChunks('a-')).toEqual(['a', '-']);
     });
 
+      
+    test('Error flag', () => {
+        expect(toDisplayChunks('E')).toEqual(['E']);
+    });
+
     
-    // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});
