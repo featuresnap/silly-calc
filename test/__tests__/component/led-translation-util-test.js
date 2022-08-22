@@ -25,12 +25,20 @@ describe('toDisplayChunks', () => {
         expect(toDisplayChunks('a-')).toEqual(['a', '-']);
     });
 
-      
     test('Error flag', () => {
         expect(toDisplayChunks('E')).toEqual(['E']);
     });
 
-    
+    test('combined case - negatives, digits, decimal and exponential notation', () => {
+        expect(toDisplayChunks('-5.67E-89')).toEqual(['-', '5.', '6', '7', 'E', '-','8', '9', ])
+    });
+
+    test('multi decimal sequence', () => {
+        expect(toDisplayChunks('.1.2.')).toEqual(['.', '1.', '2.']);
+        expect(toDisplayChunks('..4..')).toEqual(['.', '.', '4.', '.']);
+    });
+
+
     // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});
