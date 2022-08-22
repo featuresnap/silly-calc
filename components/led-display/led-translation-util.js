@@ -30,7 +30,7 @@ function toDisplayChunks(expr, options) {
     const opts = { ...defaults, ...options };
     if (expr === '') { return []; }
 
-    const pattern = /(\d\.|\d|\.)/g;
+    const pattern = /(\d\.|[a-f]\.|\d|[a-f]|\.|-)/g;
     return Array.from(expr.matchAll(pattern)).map(x => x[0]);
 }
 

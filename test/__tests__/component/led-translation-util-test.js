@@ -12,12 +12,17 @@ describe('toDisplayChunks', () => {
 
     test('single digit preceding a decimal point is a single chunk', () => {
         expect(toDisplayChunks('2.')).toEqual(['2.']);
+        expect(toDisplayChunks('b.')).toEqual(['b.']);
     });
 
     test('decimal point preceding a single digit is 2 chunks', () => {
         expect(toDisplayChunks('.3')).toEqual(['.', '3']);
+        expect(toDisplayChunks('.c')).toEqual(['.', 'c']);
     });
-    // test('empty case', () => {});
+
+    test('minus sign', () => {
+        expect(toDisplayChunks('-5')).toEqual(['-', '5']);
+    });
     // test('empty case', () => {});
     // test('empty case', () => {});
     // test('empty case', () => {});
