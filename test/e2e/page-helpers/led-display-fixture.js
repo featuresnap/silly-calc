@@ -10,7 +10,7 @@
     }
 
     get displayContents() {
-        return "0.";
+        return "";
     }
 
 }
